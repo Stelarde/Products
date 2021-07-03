@@ -1,7 +1,7 @@
 <?php 
 require_once(__DIR__ . '/../model/productModel.php');
 
-$db = new DB;
+$db = new CProducts;
 
 $product = ! empty( $_POST['product'] ) ? $_POST['product'] : false;
 $quantity = ! empty( $_POST['quantity'] ) ? $_POST['quantity'] : false;

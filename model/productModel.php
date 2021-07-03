@@ -1,5 +1,5 @@
 <?php
-class DB
+class CProducts
 {
 	// Объект класса PDO
 	private $db;
