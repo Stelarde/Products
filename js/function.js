@@ -14,13 +14,18 @@ $(document).ready(function () {
 	$("#productTable").delegate("#less", "click", function() {
 		var product = $(this).closest("tr").find("th").text();
 		var quantity = $(this).closest("td").find("#labelQuantity").text() - 1;
-		$(this).closest("td").find("#labelQuantity").text(quantity);
+		if (quantity != -1) {
+			$(this).closest("td").find("#labelQuantity").text(quantity);
 
-		$.ajax({
-			method: "POST",
-			url: "../controller/controlTable.php",
-			data: { product: product, quantity: quantity }
-		});
+			$.ajax({
+				method: "POST",
+				url: "../controller/controlTable.php",
+				data: { product: product, quantity: quantity }
+			});
+		} else {
+			alert("Количество товаров не может быть меньше 0!");
+		};
+
 	});
 
 	$("#productTable").delegate("#plus", "click", function() {
